@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Source the lib, if it hasn't been already
 if [[ -z "$rbenv_gemset_lib_loaded" ]]; then
   rbenv_gemset_root="$(dirname "${BASH_SOURCE[0]}")/../../../"
@@ -37,7 +38,7 @@ rbenv_gemset_debug "gemset.which.bash LOOP..."
 
 OLDIFS="$IFS"
 IFS=$' \t\n'
-for gemset in "$RBENV_GEMSETS"; do
+for gemset in $RBENV_GEMSETS; do
   if [[ $gemset =~ $RBENV_GEMSET_PROJECT_GEMSET_PATTERN ]]; then
     rbenv_gemset_ensure RBENV_GEMSET_DIR
     path="${RBENV_GEMSET_DIR}/$gemset"
